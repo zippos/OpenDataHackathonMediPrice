@@ -6,9 +6,12 @@
 </head>
 <body>
 <div>
+  <input auto-complete ui-items="names" ng-model="selected">
+  selected = {{selected}}
+
 <ul class="list-group">
   <li class="list-group-item"><div class="checkbox">
-    <label><input type="checkbox" value="">Name:<input type="text"> Price: <input type="text" disabled></label>
+    <label><input type="checkbox" value="">Name:<input type="text" ng-model="select1" auto-complete ui-items="names" ng-keyup="getCheapest(select1)" ng-change="updatePrice(select1)"> Price: <input type="text" ng-model="price1" disabled></label>
   </div></li>
   <li class="list-group-item"><div class="checkbox">
     <label><input type="checkbox" value="">Name:<input type="text"> Price: <input type="text" disabled></label>
