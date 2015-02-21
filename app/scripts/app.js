@@ -27,6 +27,18 @@ angular
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
       })
+      .when('/calculate', {
+        templateUrl: 'views/calc.html',
+        controller: 'CalculatorCtrl'
+      })
+      .when('/meds', {
+        templateUrl: 'views/meds.html',
+        controller: 'MedsCtrl'
+      })
+      .when('/substances', {
+        templateUrl: 'views/substances.html',
+        controller: 'SubstancesCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
