@@ -1,16 +1,16 @@
-<input type="text" class="form-control"></input>
+<input type="text" class="form-control substance" placeholder="Caută după substanță"></input>
 <table class="table table-hover substances">
 	<thead>
-		<th>thead</th>
-		<th>thead</th>
-		<th>thead</th>
-		<th>thead</th>
-		<th>thead</th>
+		<th>Nume</th>
+		<th>Concentrație</th>
+		<th>Substanță activă</th>
+		<th>Ambalaj</th>
+		<th>Formă</th>
+		<th>Preț</th>
 	</thead>
 	<tbody>
 		<tr ng-repeat="med in meds">
 			<td>{{med.den_produs}}</td>
-			<td>{{med.forma}}</td>
 			<td>{{med.concentr}}</td>
 			<td>{{med.dci}}</td>
 			<td>{{med.ambalaj}}</td>

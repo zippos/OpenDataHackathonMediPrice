@@ -82,6 +82,15 @@ body {
   }
 }
 
+input .substance {
+  margin-bottom: 10px;
+}
+
 table .substances {
   margin-top: 10px;
+  width: 100%
+}
+
+.main {
+  max-width: 960px;
 }
