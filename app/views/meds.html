@@ -6,6 +6,34 @@
 </head>
 <body>
 
+<div ng-controller="MedsCtrl"   ng-init="init()">
+  <input type="text" name="nameMed" id="nameMed" ng-model="nameMed" ng-keyup="getMed()" ng-change="nameMed=nameMed.toUpperCase();" >
+  <table>
+    <thead>
+        <tr>
+            <th>Nume</th>
+            <th>Concentrație</th>
+            <th>Substanță activă</th>
+            <th>Ambalaj</th>
+            <th>Formă</th>
+            <th>Preț</th>
+        </tr>
+    </thead>
+    <tbody>
+
+    <tr ng-repeat="med in meds">
+      <td>{{med.den_produs}}</td>
+      <td>{{med.concentr}}</td>
+      <td>{{med.dci}}</td>
+      <td>{{med.ambalaj}}</td>
+      <td>{{med.forma}}</td>
+      <td>{{med.pret_am}}</td>
+    </tr>
+
+    </tbody>
+  </table>
+ 
+</div>
 
 </body>
 </html>
