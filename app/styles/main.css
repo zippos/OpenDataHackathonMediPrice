@@ -98,7 +98,7 @@ table .substances {
 
 .substances td:nth-child(3) {
   min-width: 130px;
-};
+}
 
 .panel-green {
   border-color: green;
@@ -110,8 +110,42 @@ table .substances {
   color: #fff;
   background-color: green;
 }
+.panel-green{
+  position: fixed;
+  right: 10px;
+  top: 150px;
+  max-height: 400px;
+  width: 350px;
+}
 
 .panel-green .panel-footer {
   color: green;
 }
 
+#imagemed{
+  max-height: 100px;
+  float: left;
+}
+.form-control:focus {
+  border-color: green;
+}
+.navbar-brand{
+  margin-top: 25px;
+}
+.main{
+  margin-left: 35px;
+}
+.panel-body{
+  overflow-y: auto;
+  max-height: 300px;
+}
+.mtop{
+  margin-top: 3px;
+}
+.hover-custom:hover{
+  cursor: pointer;
+}
+.hover-custom{
+ color: darkslategrey;
+  font-weight: 600;
+}

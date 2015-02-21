@@ -9,15 +9,19 @@
  */
 angular.module('opendataApp')
   .controller('SubstancesCtrl', function ($scope, $http) {
-
-    $scope.update = function () {
+    $scope.priceList = [];
+    $scope.total=0;
+    $scope.update = function ( elem) {
+      if(elem){
+        $scope.param=elem;
+      }
 
       var qparam = angular.uppercase($scope.param);
       $http({
         url:"http://data.gov.ro/api/action/datastore_search_sql",
         method:"GET",
         params:{
-          sql: "SELECT * from \"a847b387-5f87-421d-97b0-8481f04d1359\" WHERE ((den_produs LIKE '%" + qparam +"%') OR (cod_cnpm LIKE '%" + qparam +"%') OR (cod_cim LIKE '%" + qparam +"%')) LIMIT 10"
+          sql: "SELECT * from \"a847b387-5f87-421d-97b0-8481f04d1359\" WHERE ((den_produs LIKE '%" + qparam +"%') OR (cod_cnpm LIKE '%" + qparam +"%') OR (cod_cim LIKE '%" + qparam +"%') OR (dci LIKE '%" + qparam +"%')) ORDER BY pret_am ASC LIMIT 10"
         }})
       .success(function(data) {
         $scope.meds = data.result.records;
@@ -31,5 +35,55 @@ angular.module('opendataApp')
       }
 
     }
+
+
+    $scope.init = function () {
+      $http({
+        url:"http://data.gov.ro/api/action/datastore_search_sql",
+        method:"GET",
+        params:{
+          sql: "SELECT * from \"a847b387-5f87-421d-97b0-8481f04d1359\" ORDER BY pret_am ASC LIMIT 10"
+        }})
+        .success(function(data){
+          $scope.meds = data.result.records;
+        });
+    };
+
+    $scope.moveToPrice = function(medicament) {
+      if(!isInPriceListAdd(medicament)){
+        medicament.nrprod=1;
+        $scope.priceList.push(medicament);
+      }
+      $scope.total += parseFloat(medicament.pret_am);
+    };
+
+    $scope.removeFromPrice = function(medicament) {
+      isInPriceListRemove(medicament);
+    };
+
+    var isInPriceListAdd = function(obj){
+      var isin=false;
+      $scope.priceList.forEach(function (elem) {
+        if(obj._id == elem._id){
+          elem.nrprod++;
+          isin=true;
+        }
+      });
+      return isin;
+    }
+
+
+    var isInPriceListRemove = function(obj){
+      for(var index = 0; index < $scope.priceList.length; index++) {
+        if(obj._id == $scope.priceList[index]._id){
+          $scope.total -= parseFloat(obj.pret_am);
+          $scope.priceList[index].nrprod--;
+          if ($scope.priceList[index].nrprod==0){
+            $scope.priceList.splice(index,1);
+          }
+        }
+      }
+    }
+
 
 });

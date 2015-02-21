@@ -19,10 +19,6 @@ angular
   ])
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/calculate', {
-        templateUrl: 'views/calc.html',
-        controller: 'CalculatorCtrl'
-      })
       .when('/', {
         templateUrl: 'views/substances.html',
         controller: 'SubstancesCtrl'

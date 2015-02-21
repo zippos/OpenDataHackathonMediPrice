@@ -1,51 +1,53 @@
-<div class="col-lg-9">
-<input type="text" class="form-control substance" ng-model="param" ng-keyup="update()" placeholder="Caută după substanță"></input>
+<div>
+<input id="searchInput" type="text" class="form-control substance" ng-model="param" ng-keyup="update()" placeholder="Caută după substanță"></input>
 <br />
 
-<table class="table table-hover substances">
+<table class="table table-striped table-hover substances" ng-init="init()">
 	<thead>
 		<th>Nume</th>
 		<th>Concentrație</th>
 		<th>Substanță activă</th>
-		<th>Ambalaj</th>
 		<th>Formă</th>
+    <th>Firmă</th>
 		<th>Preț</th>
+    <th>+/-</th>
 	</thead>
 	<tbody>
 		<tr ng-repeat="med in meds">
 			<td>{{med.den_produs}}</td>
 			<td>{{med.concentr}}</td>
-			<td>{{med.dci}}</td>
-			<td>{{med.ambalaj}}</td>
+			<td ng-click="update(med.dci)" class="hover-custom">{{med.dci}}</td>
 			<td>{{med.forma}}</td>
+      <td>{{med.firma}}</td>
 			<td>{{med.pret_am}}</td>
-      <td><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus" aria-hidden="true"></td>
+      <td>
+        <button id="{{med._id}}"type="button" ng-click="moveToPrice(med)" class="btn btn-success"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+        <button data-id="{{med._id}}"type="button" ng-click="removeFromPrice(med)" class="btn btn-warning mtop"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button>
+      </td>
 		</tr>
 	</tbody>
 </table>
 </div>
 
-<div class="panel panel-green col-lg-3 ">
+<div class="panel panel-green">
   <div class="panel-heading">
     <h3 class="panel-title">Lista produse alese</h3>
   </div>
   <div class="panel-body">
+    <table class="table table-striped">
     <thead>
     <th>Nume</th>
     <th>Cantitate</th>
+    <th>Pret</th>
      </thead>
     <tbody>
-    <!--<tr ng-repeat="med in meds">-->
-      <!--<td>{{med.den_produs}}</td>-->
-      <!--<td>{{med.concentr}}</td>-->
-      <!--<td>{{med.dci}}</td>-->
-      <!--<td>{{med.ambalaj}}</td>-->
-      <!--<td>{{med.forma}}</td>-->
-      <!--<td>{{med.pret_am}}</td>-->
-      <!--<td><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus" aria-hidden="true"></td>-->
-    <!--</tr>-->
+    <tr ng-repeat="med in priceList">
+      <td>{{med.den_produs}}</td>
+      <td>{{med.nrprod}}</td>
+      <td>{{med.pret_am}}</td>
+    </tr>
     </tbody>
     </table>
   </div>
-  <div class="panel-footer">Pret estimativ:</div>
+  <div class="panel-footer">Pret estimativ: {{total}}</div>
 </div>
