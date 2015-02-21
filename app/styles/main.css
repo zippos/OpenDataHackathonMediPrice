@@ -94,3 +94,7 @@ table .substances {
 .main {
   max-width: 960px;
 }
+
+.substances td:nth-child(3) {
+  min-width: 130px;
+};
