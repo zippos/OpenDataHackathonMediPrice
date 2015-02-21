@@ -10,9 +10,10 @@
 angular.module('opendataApp')
   .controller('SubstancesCtrl', function ($scope, $http) {
 
-    $scope.getValue = function () {
-      var qparam = $scope.param;
-      $http.get("http://data.gov.ro/api/action/datastore_search?resource_id=a847b387-5f87-421d-97b0-8481f04d1359&q=" + qparam)
+    $scope.update = function () {
+      
+      var qparam = angular.uppercase($scope.param);
+      $http.get("http://data.gov.ro/api/action/datastore_search_sql?sql=SELECT * from \"a847b387-5f87-421d-97b0-8481f04d1359\" WHERE dci LIKE '" + qparam +"%'")
   
       .success(function(data, status, headers, config) {
         $scope.meds = data.result.records;
@@ -21,6 +22,10 @@ angular.module('opendataApp')
       .error(function(data, status, headers, config) {
          $scope.errorMessage = "Couldn't load the list of meds, error # " + status;
       });
+
+      if($scope.param == '') {
+        $scope.meds = null;
+      }
     }
 
 });
