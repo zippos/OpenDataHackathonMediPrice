@@ -8,7 +8,7 @@
  * Controller of the opendataApp
  */
 angular.module('opendataApp')
-  .controller('SubstancesCtrl', function ($scope, $http,$modal, $log) {
+  .controller('SubstancesCtrl', function ($scope, $http, $modal, $log) {
     $scope.priceList = [];
     $scope.total=0;
     $scope.update = function ( elem) {
