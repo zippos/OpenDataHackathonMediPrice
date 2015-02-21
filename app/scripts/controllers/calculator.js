@@ -1,23 +1,25 @@
 'use strict';
 
 angular.module('opendataApp')
-  .controller('CalculatorCtrl', function ($scope) {
+  .controller('CalculatorCtrl', function ($scope, $http) {
+    $scope.cheapest = {};
+
+    var getCheapest = function(name) {
+      $http({
+        url:"http://data.gov.ro/api/action/datastore_search_sql",
+        method:"GET",
+        params:{
+          sql: "SELECT * from \"a847b387-5f87-421d-97b0-8481f04d1359\" WHERE den_produs LIKE '" + name +"%' ORDER BY pret_rid ASC LIMIT 1"
+        }})
+        .success(function(data){
+          $scope.cheapest = data.result.records[0];
+          console.log($scope.cheapest)
+        });
+      ;
+    }
 
 
-
-    var data = {
-      resource_id: 'a847b387-5f87-421d-97b0-8481f04d1359', // the resource id
-      limit: 5, // get 5 results
-      q: 'jones' // query for 'jones'
-    };
-    $.ajax({
-      url: 'http://data.gov.ro/api/action/datastore_search',
-      data: data,
-      dataType: 'jsonp',
-      success: function(data) {
-        alert('Total results found: ' + data.result.total)
-      }
-    });
+    getCheapest("ACICLO");
 
 
 
