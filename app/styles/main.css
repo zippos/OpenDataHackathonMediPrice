@@ -95,6 +95,23 @@ table .substances {
   max-width: 960px;
 }
 
+
 .substances td:nth-child(3) {
   min-width: 130px;
 };
+
+.panel-green {
+  border-color: green;
+  padding: 0px !important;
+}
+
+.panel-green .panel-heading {
+  border-color: green;
+  color: #fff;
+  background-color: green;
+}
+
+.panel-green .panel-footer {
+  color: green;
+}
+

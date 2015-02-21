@@ -22,7 +22,7 @@
     <tbody>
 
     <tr ng-repeat="med in meds">
-      <td>{{med.den_produs}}</td>
+      <td>{{med.den_produs.split(" ")[0]}}</td>
       <td>{{med.concentr}}</td>
       <td>{{med.dci}}</td>
       <td>{{med.ambalaj}}</td>
@@ -32,7 +32,7 @@
 
     </tbody>
   </table>
- 
+
 </div>
 
 </body>
