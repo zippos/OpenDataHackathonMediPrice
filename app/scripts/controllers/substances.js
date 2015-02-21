@@ -13,11 +13,10 @@ angular.module('opendataApp')
     $scope.update = function () {
       
       var qparam = angular.uppercase($scope.param);
-      $http.get("http://data.gov.ro/api/action/datastore_search_sql?sql=SELECT * from \"a847b387-5f87-421d-97b0-8481f04d1359\" WHERE dci LIKE '" + qparam +"%'")
+      $http.get("http://data.gov.ro/api/action/datastore_search_sql?sql=SELECT * from \"a847b387-5f87-421d-97b0-8481f04d1359\" WHERE dci LIKE '" + qparam +"%' ORDER BY pret_am ASC")
   
       .success(function(data, status, headers, config) {
         $scope.meds = data.result.records;
-        console.log(data.result.records.den_produs);
       })
       .error(function(data, status, headers, config) {
          $scope.errorMessage = "Couldn't load the list of meds, error # " + status;
@@ -26,6 +25,7 @@ angular.module('opendataApp')
       if($scope.param == '') {
         $scope.meds = null;
       }
+      
     }
 
 });
