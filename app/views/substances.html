@@ -23,8 +23,8 @@
       <td class="noF">{{med.firma}}</td>
 			<td>{{med.pret_am}}</td>
       <td>
-        <button id="{{med._id}}"type="button" ng-click="moveToPrice(med)" class="btn btn-success"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
-        <button data-id="{{med._id}}"type="button" ng-click="removeFromPrice(med)" class="btn btn-warning mtop"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button>
+        <button id="{{med._id}}"type="button" ng-click="moveToPrice(med); saveMeds()" class="btn btn-success"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+        <button data-id="{{med._id}}"type="button" ng-click="removeFromPrice(med); delMeds(med); saveMeds()" class="btn btn-warning mtop"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button>
       </td>
 		</tr>
 	</tbody>
@@ -51,7 +51,6 @@
       </table>
     </div>
     <div class="panel-footer">Pret estimativ: {{total}}</div>
-    <button class="btn btn-default" ng-click="saveMeds()">Salveaza reteta</button>
   </div>
 
   <!--<script>-->
@@ -68,11 +67,7 @@
 
   <script type="text/ng-template" id="myModalContent.html">
     <div class="modal-header">
-<<<<<<< HEAD
-      <h3 class="modal-title">Im a modal!</h3>
-=======
       <h3 class="modal-title">{{med.den_produs}}</h3>
->>>>>>> 306bf453fb9e4ec49f1a804e5948662a0f9de54b
     </div>
     <div class="modal-body">
       <table class="table table-striped">
@@ -96,12 +91,4 @@
     </div>
   </script>
 
-<<<<<<< HEAD
-
-
-
 </div>
-=======
-</div>
-
->>>>>>> 306bf453fb9e4ec49f1a804e5948662a0f9de54b
