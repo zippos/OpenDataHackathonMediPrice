@@ -14,9 +14,11 @@
 	</thead>
 	<tbody>
 		<tr ng-repeat="med in meds">
-			<td>{{med.den_produs}}</td>
+			<td>{{med.den_produs}}
+      <a class="green-details" ng-click="currentMed(med)">Detalii</a>
+      </td>
 			<td class="noC">{{med.concentr}}</td>
-			<td ng-click="currentMed(med)">{{med.den_produs}}</td>
+			<td>{{med.den_produs}}</td>
 			<td>{{med.concentr}}</td>
 			<td ng-click="update(med.dci)" class="hover-custom">{{med.dci}}</td>
 			<td>{{med.forma}}</td>
@@ -30,11 +32,9 @@
 	</tbody>
 </table>
 
-
-
   <div class="panel panel-green">
     <div class="panel-heading">
-      <h3 class="panel-title">Lista produse alese</h3>
+      <h3 class="panel-title">Calculator retetă medicală</h3>
     </div>
     <div class="panel-body">
       <table class="table table-striped">
@@ -60,11 +60,21 @@
       <h3 class="modal-title">{{med.den_produs}}</h3>
     </div>
     <div class="modal-body">
-      <ul>
-        <li>
-          {{med.pret_am}}
-        </li>
-      </ul>
+      <table class="table table-striped">
+        <tbody>
+        <tr><td>Concentratie</td><td>{{med.concentr}}</td></tr>
+        <tr><td>Forma</td><td>{{med.forma}}</td></tr>
+        <tr><td>Substanta activa</td><td>{{med.dci}}</td></tr>
+        <tr><td>Firma</td><td>{{med.firma}}</td></tr>
+        <tr><td>Ambalaj</td><td>{{med.ambalaj}}</td></tr>
+        <tr><td>Grupa</td><td>{{med.grupa}}</td></tr>
+        <tr><td>Concentratie</td><td>{{med.concentr}}</td></tr>
+        <tr><td>Cod unic de identificare</td><td>{{med.cod_cim}}</td></tr>
+        <tr><td>Cod CNMP</td><td>{{med.cod_cnmp}}</td></tr>
+        <tr><td>Status ANM</td><td>{{med.status_anm}}</td></tr>
+        <tr><td>Observatii</td><td>{{med.obs}}</td></tr>
+        </tbody>
+      </table>
     </div>
     <div class="modal-footer">
       <button class="btn btn-success" ng-click="ok()">OK</button>

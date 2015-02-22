@@ -120,7 +120,7 @@ table .substances {
 }
 
 .panel-green .panel-footer {
-  color: green;
+  color: rgb(92, 184, 92);
 }
 
 #imagemed{
@@ -132,6 +132,7 @@ table .substances {
 }
 .navbar-brand{
   margin-top: 25px;
+  max-width: 450px;
 }
 .main{
   margin-left: 35px;
@@ -155,4 +156,18 @@ table .substances {
 @media (max-width: 479px) {
 .noC { display:none;}
 .noF { display:none;}
+}
+
+@media (max-width: 595px) {
+  .navbar-brand{
+    max-width: 270px;
+  }
+}
+
+.green-details{
+  cursor: pointer;
+  color: rgb(92, 184, 92);
+}
+.green-details:hover{
+  color: rgb(92, 184, 92);
 }

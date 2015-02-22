@@ -21,7 +21,7 @@ angular.module('opendataApp')
         url:"http://data.gov.ro/api/action/datastore_search_sql",
         method:"GET",
         params:{
-          sql: "SELECT * from \"a847b387-5f87-421d-97b0-8481f04d1359\" WHERE ((den_produs LIKE '%" + qparam +"%') OR (cod_cnpm LIKE '%" + qparam +"%') OR (cod_cim LIKE '%" + qparam +"%') OR (dci LIKE '%" + qparam +"%')) ORDER BY pret_am ASC LIMIT 10"
+          sql: "SELECT * from \"a847b387-5f87-421d-97b0-8481f04d1359\" WHERE ((den_produs LIKE '%" + qparam +"%') OR (cod_cnpm LIKE '%" + qparam +"%') OR (cod_cim LIKE '%" + qparam +"%') OR (dci LIKE '%" + qparam +"%')) ORDER BY pret_am ASC LIMIT 30"
         }})
       .success(function(data) {
         $scope.meds = data.result.records;
@@ -42,7 +42,7 @@ angular.module('opendataApp')
         url:"http://data.gov.ro/api/action/datastore_search_sql",
         method:"GET",
         params:{
-          sql: "SELECT * from \"a847b387-5f87-421d-97b0-8481f04d1359\" ORDER BY pret_am ASC LIMIT 10"
+          sql: "SELECT * from \"a847b387-5f87-421d-97b0-8481f04d1359\" ORDER BY pret_am ASC LIMIT 30"
         }})
         .success(function(data){
           $scope.meds = data.result.records;
