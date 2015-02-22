@@ -8,7 +8,7 @@
 		<th class="noC">Concentrație</th>
 		<th>Substanță activă</th>
 		<th>Formă</th>
-    <th class="noF">Firmă</th>
+    	<th class="noF">Firmă</th>
 		<th>Preț</th>
     <th>+/-</th>
 	</thead>
@@ -16,9 +16,11 @@
 		<tr ng-repeat="med in meds">
 			<td>{{med.den_produs}}</td>
 			<td class="noC">{{med.concentr}}</td>
+			<td ng-click="currentMed(med)">{{med.den_produs}}</td>
+			<td>{{med.concentr}}</td>
 			<td ng-click="update(med.dci)" class="hover-custom">{{med.dci}}</td>
 			<td>{{med.forma}}</td>
-      <td class="noF">{{med.firma}}</td>
+      		<td class="noF">{{med.firma}}</td>
 			<td>{{med.pret_am}}</td>
       <td>
         <button id="{{med._id}}"type="button" ng-click="moveToPrice(med)" class="btn btn-success"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
@@ -53,31 +55,22 @@
     <div class="panel-footer">Pret estimativ: {{total}}</div>
   </div>
 
-  <button class="btn btn-default" ng-click="open()">Open me!</button>
-  <button class="btn btn-default" ng-click="open('lg')">Large modal</button>
-  <button class="btn btn-default" ng-click="open('sm')">Small modal</button>
-  <div ng-show="selected">Selection from a modal: {{ selected }}</div>
-
   <script type="text/ng-template" id="myModalContent.html">
     <div class="modal-header">
-      <h3 class="modal-title">I'm a modal!</h3>
+      <h3 class="modal-title">{{med.den_produs}}</h3>
     </div>
     <div class="modal-body">
       <ul>
-        <li ng-repeat="item in items">
-          <a ng-click="selected.item = item">{{ item }}</a>
+        <li>
+          {{med.pret_am}}
         </li>
       </ul>
-      Selected: <b>{{ selected.item }}</b>
     </div>
     <div class="modal-footer">
-      <button class="btn btn-primary" ng-click="ok()">OK</button>
+      <button class="btn btn-success" ng-click="ok()">OK</button>
       <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
     </div>
   </script>
-
-
-
 
 </div>
 
