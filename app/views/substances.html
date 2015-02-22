@@ -8,7 +8,7 @@
 		<th class="noC">Concentrație</th>
 		<th>Substanță activă</th>
 		<th>Formă</th>
-    	<th class="noF">Firmă</th>
+    <th class="noF">Firmă</th>
 		<th>Preț</th>
     <th>+/-</th>
 	</thead>
@@ -18,11 +18,9 @@
       <a class="green-details" ng-click="currentMed(med)">Detalii</a>
       </td>
 			<td class="noC">{{med.concentr}}</td>
-			<td>{{med.den_produs}}</td>
-			<td>{{med.concentr}}</td>
 			<td ng-click="update(med.dci)" class="hover-custom">{{med.dci}}</td>
 			<td>{{med.forma}}</td>
-      		<td class="noF">{{med.firma}}</td>
+      <td class="noF">{{med.firma}}</td>
 			<td>{{med.pret_am}}</td>
       <td>
         <button id="{{med._id}}"type="button" ng-click="moveToPrice(med)" class="btn btn-success"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
