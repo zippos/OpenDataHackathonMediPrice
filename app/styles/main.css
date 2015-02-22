@@ -200,3 +200,8 @@ table .substances {
     height:398px !important;
   }
 }
+@media (max-width:838px) {
+  .mtop {
+    margin-top: 3px;
+  }
+}
