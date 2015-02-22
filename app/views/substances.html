@@ -35,7 +35,7 @@
       <h3 class="panel-title">Lista produse alese</h3>
     </div>
     <div class="panel-body">
-      <table class="table table-striped">
+      <table class="table table-striped" ng-init="loadMeds()">
         <thead>
         <th>Nume</th>
         <th>Cantitate</th>
@@ -51,6 +51,7 @@
       </table>
     </div>
     <div class="panel-footer">Pret estimativ: {{total}}</div>
+    <button class="btn btn-default" ng-click="saveMeds()">Salveaza reteta</button>
   </div>
 
   <button class="btn btn-default" ng-click="open()">Open me!</button>
@@ -60,7 +61,7 @@
 
   <script type="text/ng-template" id="myModalContent.html">
     <div class="modal-header">
-      <h3 class="modal-title">I'm a modal!</h3>
+      <h3 class="modal-title">Im a modal!</h3>
     </div>
     <div class="modal-body">
       <ul>
@@ -80,4 +81,3 @@
 
 
 </div>
-
