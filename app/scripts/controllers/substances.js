@@ -11,6 +11,7 @@ angular.module('opendataApp')
   .controller('SubstancesCtrl', function ($scope, $http, $modal, $window) {
     $scope.priceList = [];
     $scope.total=0;
+
     $scope.update = function ( elem) {
       if(elem){
         $scope.param=elem;
@@ -105,12 +106,16 @@ angular.module('opendataApp')
 
     $scope.saveMeds = function() {
       window.localStorage.setItem("medicamente_salvate", JSON.stringify($scope.priceList));
+      window.localStorage.setItem("medicamente_total", JSON.stringify($scope.total));
     };
 
     $scope.loadMeds = function() {
+
       var storedMeds = JSON.parse(window.localStorage.getItem("medicamente_salvate"));
+      var storedTotal = JSON.parse(window.localStorage.getItem("medicamente_total"));
       if(storedMeds) {
         $scope.priceList = storedMeds;
+        $scope.total = storedTotal;
       }
     };
 

@@ -12,7 +12,7 @@
         var infowindow = new google.maps.InfoWindow({
           map: map,
           position: pos,
-          content: 'Location found using HTML5.'
+          content: 'Esti aici!'
         });
 
         map.setCenter(pos);

@@ -111,6 +111,7 @@ table .substances {
   background-color: rgb(92, 184, 92);
 }
 .panel-green {
+  z-index: 2;
   position: fixed;
   right: 10px;
   top: 150px;
