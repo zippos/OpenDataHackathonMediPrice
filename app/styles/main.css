@@ -140,6 +140,7 @@ table .substances {
 .panel-body{
   overflow-y: auto;
   max-height: 300px;
+  MIN-HEIGHT: 110PX;
 }
 .mtop{
   margin-top: 3px;
@@ -152,13 +153,6 @@ table .substances {
   font-weight: 600;
 }
 
-
-@media (max-width: 479px) {
-.noC { display:none;}
-.noF { display:none;}
-}
-
-
 @media (max-width: 595px) {
   .navbar-brand{
     max-width: 270px;
@@ -169,21 +163,36 @@ table .substances {
   cursor: pointer;
   color: rgb(92, 184, 92);
 }
-.green-details:hover{
+.green-details:hover {
   color: rgb(92, 184, 92);
+}
 
-@media (max-width:790px){
+@media (max-width:1355px){
   .panel{
     top: initial;
     bottom: -20px;
-    height: 40px;
+    height: 67px;
     width: 100%;
     right: 0px;
   }
+  .noC { display:none;}
+  .noF { display:none;}
+  .main{
+    margin: auto;
+  }
+  .mtop {
+    margin-top: 0;
+  }
 }
-
 
 .classUP{
   float:right;
-
 }
+
+.panel-footer{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: -1;
+}
+

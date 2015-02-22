@@ -103,15 +103,17 @@ angular.module('opendataApp')
 
     $scope.animatePanel = function() {
       var w = angular.element($window).width();
-      if(w<=790) {
-        if($(".panel").height() <= 50) {
+      if(w<=1355) {
+        if($(".panel").height() <= 80) {
           $( ".panel" ).animate({
             height: "400px"
           }, 400);
+            $(".classUP").removeClass("glyphicon-menu-up").addClass("glyphicon-menu-down");
         } else {
           $( ".panel" ).animate({
-            height: "38px"
+            height: "67px"
           }, 400);
+          $(".classUP").removeClass("glyphicon-menu-down").addClass("glyphicon-menu-up");
         }
       }
     }
