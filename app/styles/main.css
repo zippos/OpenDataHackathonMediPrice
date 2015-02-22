@@ -149,3 +149,9 @@ table .substances {
  color: darkslategrey;
   font-weight: 600;
 }
+
+
+@media (max-width: 479px) {
+.noC { display:none;}
+.noF { display:none;}
+}
