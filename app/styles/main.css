@@ -101,21 +101,22 @@ table .substances {
 }
 
 .panel-green {
-  border-color: green;
+  border-color: rgb(92, 184, 92);
   padding: 0px !important;
 }
 
 .panel-green .panel-heading {
-  border-color: green;
+  border-color: rgb(92, 184, 92);
   color: #fff;
-  background-color: green;
+  background-color: rgb(92, 184, 92);
 }
-.panel-green{
+.panel-green {
   position: fixed;
   right: 10px;
   top: 150px;
   max-height: 400px;
-  width: 350px;
+  width: 330px;
+  margin-left: 10px;
 }
 
 .panel-green .panel-footer {
@@ -127,7 +128,7 @@ table .substances {
   float: left;
 }
 .form-control:focus {
-  border-color: green;
+  border-color: rgb(92, 184, 92);
 }
 .navbar-brand{
   margin-top: 25px;
