@@ -195,4 +195,8 @@ table .substances {
   width: 100%;
   z-index: -1;
 }
-
+@media (min-width:1355px) {
+  .panel-green{
+    height:398px !important;
+  }
+}
