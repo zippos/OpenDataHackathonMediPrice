@@ -8,7 +8,7 @@
  * Controller of the opendataApp
  */
 angular.module('opendataApp')
-  .controller('SubstancesCtrl', function ($scope, $http, $modal, $log) {
+  .controller('SubstancesCtrl', function ($scope, $http, $modal, $window) {
     $scope.priceList = [];
     $scope.total=0;
     $scope.update = function ( elem) {
@@ -100,6 +100,22 @@ angular.module('opendataApp')
         }
       });
     };
+
+    $scope.animatePanel = function() {
+      var w = angular.element($window).width();
+      if(w<=790) {
+        if($(".panel").height() <= 50) {
+          $( ".panel" ).animate({
+            height: "400px"
+          }, 400);
+        } else {
+          $( ".panel" ).animate({
+            height: "38px"
+          }, 400);
+        }
+      }
+    }
+
 });
 
 angular.module('opendataApp').controller('ModalInstanceCtrl', function ($scope, $modalInstance, items) {
