@@ -158,6 +158,7 @@ table .substances {
 .noF { display:none;}
 }
 
+
 @media (max-width: 595px) {
   .navbar-brand{
     max-width: 270px;
@@ -170,4 +171,19 @@ table .substances {
 }
 .green-details:hover{
   color: rgb(92, 184, 92);
+
+@media (max-width:790px){
+  .panel{
+    top: initial;
+    bottom: -20px;
+    height: 40px;
+    width: 100%;
+    right: 0px;
+  }
+}
+
+
+.classUP{
+  float:right;
+
 }

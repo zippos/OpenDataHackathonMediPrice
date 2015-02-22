@@ -32,7 +32,7 @@
 
   <div class="panel panel-green">
     <div class="panel-heading">
-      <h3 class="panel-title">Calculator retetă medicală</h3>
+      <h3 class="panel-title">Calculator retetă medicală <span class="glyphicon glyphicon-menu-up classUP"></span></h3>
     </div>
     <div class="panel-body">
       <table class="table table-striped">
@@ -52,6 +52,18 @@
     </div>
     <div class="panel-footer">Pret estimativ: {{total}}</div>
   </div>
+
+  <!--<script>-->
+    <!--$(".panel-green").unbind('click').click(function(){-->
+      <!--if($(this).find(".glyphicon-menu-up")){-->
+         <!--$(this).animate({height: '400px'});-->
+        <!--$(this).removeClass(".glyphicon-menu-up").addClass(".glyphicon-menu-down");}-->
+      <!--else{-->
+        <!--$(this).animate({height: '40px'});-->
+        <!--$(this).removeClass(".glyphicon-menu-down").addClass(".glyphicon-menu-up");-->
+      <!--}-->
+    <!--});-->
+  <!--</script>-->
 
   <script type="text/ng-template" id="myModalContent.html">
     <div class="modal-header">
