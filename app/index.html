@@ -26,11 +26,13 @@
         <div class="container">
           <div class="navbar-header">
             <img id="imagemed" src="/images/meds.png" alt="Meds"/>
-            <a class="navbar-brand" href="#/">Calculator retetă medicală</a>
-          </div>
+            <a class="navbar-brand" href="#/">Catalogul national al preturilor medicamentelor autorizate de punere pe piata</a>
+            <button type="button" ng-click="" class="btn btn-success" style="float: right;margin-top: 5%;" data-toggle="modal" data-target="#myModal">Farmacie</button>
 
+          </div>
           <div class="collapse navbar-collapse" id="js-navbar-collapse">
           </div>
+
         </div>
       </div>
     </div>
@@ -41,7 +43,7 @@
 
     <div class="footer">
       <div class="container">
-        <p><span class="glyphicon glyphicon-heart"></span> Open data hackathon </p>
+        <p><span class="glyphicon glyphicon-cloud-upload" style="z-index: -1;"></span> Open data hackathon </p>
       </div>
     </div>
 
@@ -78,7 +80,26 @@
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/substances.js"></script>
+        <script src="scripts/controllers/header.js"></script>
+    <!-- endbuild -->
 
-        <!-- endbuild -->
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" ng-controller="HeaderCtrl">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
 </body>
 </html>

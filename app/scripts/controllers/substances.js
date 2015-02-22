@@ -8,7 +8,7 @@
  * Controller of the opendataApp
  */
 angular.module('opendataApp')
-  .controller('SubstancesCtrl', function ($scope, $http, $modal, $log) {
+  .controller('SubstancesCtrl', function ($scope, $http, $modal, $window) {
     $scope.priceList = [];
     $scope.total=0;
     
@@ -22,7 +22,7 @@ angular.module('opendataApp')
         url:"http://data.gov.ro/api/action/datastore_search_sql",
         method:"GET",
         params:{
-          sql: "SELECT * from \"a847b387-5f87-421d-97b0-8481f04d1359\" WHERE ((den_produs LIKE '%" + qparam +"%') OR (cod_cnpm LIKE '%" + qparam +"%') OR (cod_cim LIKE '%" + qparam +"%') OR (dci LIKE '%" + qparam +"%')) ORDER BY pret_am ASC LIMIT 10"
+          sql: "SELECT * from \"a847b387-5f87-421d-97b0-8481f04d1359\" WHERE ((den_produs LIKE '%" + qparam +"%') OR (cod_cnpm LIKE '%" + qparam +"%') OR (cod_cim LIKE '%" + qparam +"%') OR (dci LIKE '%" + qparam +"%')) ORDER BY pret_am ASC LIMIT 30"
         }})
       .success(function(data) {
         $scope.meds = data.result.records;
@@ -43,7 +43,7 @@ angular.module('opendataApp')
         url:"http://data.gov.ro/api/action/datastore_search_sql",
         method:"GET",
         params:{
-          sql: "SELECT * from \"a847b387-5f87-421d-97b0-8481f04d1359\" ORDER BY pret_am ASC LIMIT 10"
+          sql: "SELECT * from \"a847b387-5f87-421d-97b0-8481f04d1359\" ORDER BY pret_am ASC LIMIT 30"
         }})
         .success(function(data){
           $scope.meds = data.result.records;
@@ -86,25 +86,19 @@ angular.module('opendataApp')
       }
     }
 
-    $scope.items = ['item1', 'item2', 'item3'];
+    $scope.currentMed = function (med){
+        $scope.open(med);
+    }
 
-    $scope.open = function (size) {
-
+    $scope.open = function (med) {
       var modalInstance = $modal.open({
         templateUrl: 'myModalContent.html',
         controller: 'ModalInstanceCtrl',
-        size: size,
         resolve: {
           items: function () {
-            return $scope.items;
+            return med;
           }
         }
-      });
-
-      modalInstance.result.then(function (selectedItem) {
-        $scope.selected = selectedItem;
-      }, function () {
-        $log.info('Modal dismissed at: ' + new Date());
       });
     };
 
@@ -115,24 +109,29 @@ angular.module('opendataApp')
     $scope.loadMeds = function() {
       $scope.priceList = JSON.parse(window.localStorage.getItem("medicamente_salvate"));
     };
+
+    $scope.animatePanel = function() {
+      var w = angular.element($window).width();
+      if(w<=1355) {
+        if($(".panel").height() <= 80) {
+          $( ".panel" ).animate({
+            height: "400px"
+          }, 400);
+            $(".classUP").removeClass("glyphicon-menu-up").addClass("glyphicon-menu-down");
+        } else {
+          $( ".panel" ).animate({
+            height: "67px"
+          }, 400);
+          $(".classUP").removeClass("glyphicon-menu-down").addClass("glyphicon-menu-up");
+        }
+      }
+    }
         
 });
 
-
-
-angular.module('opendataApp')
-  .controller('ModalInstanceCtrl', function ($scope, $modalInstance, items) {
-
-  $scope.items = items;
-  $scope.selected = {
-    item: $scope.items[0]
-  };
-
+angular.module('opendataApp').controller('ModalInstanceCtrl', function ($scope, $modalInstance, items) {
+  $scope.med = items;
   $scope.ok = function () {
-    $modalInstance.close($scope.selected.item);
-  };
-
-  $scope.cancel = function () {
-    $modalInstance.dismiss('cancel');
+    $modalInstance.close();
   };
 });
