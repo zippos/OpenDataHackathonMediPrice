@@ -24,14 +24,14 @@
 			<td>{{med.pret_am}}</td>
       <td>
         <button id="{{med._id}}"type="button" ng-click="moveToPrice(med); saveMeds()" class="btn btn-success"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
-        <button data-id="{{med._id}}"type="button" ng-click="removeFromPrice(med); delMeds(med); saveMeds()" class="btn btn-warning mtop"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button>
+        <!--<button data-id="{{med._id}}"type="button" ng-click="removeFromPrice(med); delMeds(med); saveMeds()" class="btn btn-warning mtop"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button>-->
       </td>
 		</tr>
 	</tbody>
 </table>
 
-  <div class="panel panel-green"  ng-click="animatePanel()">
-    <div class="panel-heading">
+  <div class="panel panel-green" >
+    <div class="panel-heading" ng-click="animatePanel()">
       <h3 class="panel-title">Calculator retetă medicală <span class="glyphicon glyphicon-menu-up classUP"></span></h3>
     </div>
     <div class="panel-body">
@@ -44,13 +44,23 @@
         <tbody>
         <tr ng-repeat="med in priceList">
           <td>{{med.den_produs}}</td>
-          <td>{{med.nrprod}}</td>
-          <td>{{med.pret_am}}</td>
+          <td>{{med.nrprod}}
+            <div class="btn-group">
+            <button type="button" ng-click="increaseElement(med);saveMeds()" style="width: 20px;padding: 0px;"class="btn btn-sm btn-success">
+              <span class="glyphicon glyphicon-plus" aria-hidden="true" style="font-size:50%;"></span></button>
+            <button type="button" ng-click="decreaseElement(med);delMeds(med); saveMeds()" style="width: 20px;padding: 0px;"class="btn btn-sm btn-warning"><span
+                class="glyphicon glyphicon-minus" aria-hidden="true"  style="font-size:50%;"></span></button>
+            </div>
+          </td>
+          <td>
+            {{med.pret_am}}
+          </td>
         </tr>
         </tbody>
       </table>
     </div>
-    <div class="panel-footer">Pret estimativ: {{total}}</div>
+    <div class="panel-footer">Pret estimativ: {{total}}<button class="btn btn-success" style="float: right;" ng-click="clearList()">Clear list</button></div>
+
   </div>
 
 

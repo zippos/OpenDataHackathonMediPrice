@@ -58,6 +58,27 @@ angular.module('opendataApp')
       $scope.total += parseFloat(medicament.pret_am);
     };
 
+    $scope.increaseElement = function(obj) {
+      $scope.priceList.forEach(function (elem) {
+        if(obj._id == elem._id){
+          elem.nrprod++;
+          $scope.total += parseFloat(obj.pret_am);
+                }
+      });
+    };
+
+    $scope.decreaseElement = function(obj) {
+      for(var index = 0; index < $scope.priceList.length; index++) {
+        if(obj._id == $scope.priceList[index]._id){
+          $scope.priceList[index].nrprod--;
+          $scope.total -= parseFloat(obj.pret_am);
+          if ($scope.priceList[index].nrprod==0){
+            $scope.priceList.splice(index,1);
+          }
+        }
+      };
+    };
+
     $scope.removeFromPrice = function(medicament) {
       isInPriceListRemove(medicament);
     };
@@ -88,6 +109,12 @@ angular.module('opendataApp')
       }
     }
 
+    $scope.clearList = function(){
+      $scope.priceList.splice(0,$scope.priceList.length);
+      $scope.total =0;
+
+    }
+
     $scope.currentMed = function (med){
         $scope.open(med);
     }
@@ -110,7 +137,6 @@ angular.module('opendataApp')
     };
 
     $scope.loadMeds = function() {
-
       var storedMeds = JSON.parse(window.localStorage.getItem("medicamente_salvate"));
       var storedTotal = JSON.parse(window.localStorage.getItem("medicamente_total"));
       if(storedMeds) {
@@ -126,14 +152,14 @@ angular.module('opendataApp')
     $scope.animatePanel = function() {
       var w = angular.element($window).width();
       if(w<=1355) {
-        if($(".panel").height() <= 80) {
+        if($(".panel").height() <= 90) {
           $( ".panel" ).animate({
             height: "400px"
           }, 400);
             $(".classUP").removeClass("glyphicon-menu-up").addClass("glyphicon-menu-down");
         } else {
           $( ".panel" ).animate({
-            height: "67px"
+            height: "87px"
           }, 400);
           $(".classUP").removeClass("glyphicon-menu-down").addClass("glyphicon-menu-up");
         }

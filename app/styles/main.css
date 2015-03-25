@@ -172,10 +172,11 @@ table .substances {
   .panel{
     top: initial;
     bottom: -20px;
-    height: 67px;
+    height: 87px;
     width: 100%;
     right: 0px;
   }
+  .panel-heading{margin-bottom: 20px;}
   .noC { display:none;}
   .noF { display:none;}
   .main{
@@ -201,8 +202,4 @@ table .substances {
     height:398px !important;
   }
 }
-@media (max-width:838px) {
-  .mtop {
-    margin-top: 3px;
-  }
-}
+
