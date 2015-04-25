@@ -24,6 +24,10 @@ angular
         templateUrl: 'views/substances.html',
         controller: 'SubstancesCtrl'
       })
+      .when('/forum', {
+        templateUrl: 'views/forum.html',
+        controller: 'ForumCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

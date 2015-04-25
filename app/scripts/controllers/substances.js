@@ -8,9 +8,14 @@
  * Controller of the opendataApp
  */
 angular.module('opendataApp')
-  .controller('SubstancesCtrl', function ($scope, $http, $modal, $window) {
+  .controller('SubstancesCtrl', function ($scope, $http, $modal, $window, $location) {
     $scope.priceList = [];
     $scope.total=0;
+
+    $scope.seeForum = function() {
+      $location.path("/forum");
+
+    }
 
     $scope.update = function ( elem) {
       if(elem){

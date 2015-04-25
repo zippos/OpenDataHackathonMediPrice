@@ -1,0 +1,8 @@
+
+{{punga}}
+<div ng-repeat="q in questions">
+  <div ng-click="seeComments(q.comments, $index)">{{q.title}}</div>
+</div>
+
+<input type="text" ng-model="title">
+<button ng-click="addQuestion()">Save</button>
